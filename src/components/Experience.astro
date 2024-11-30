@@ -1,0 +1,39 @@
+---
+import ExperienceItem from './ExperienceItem.astro';
+const EXPERIENCE = [
+  {
+    date: 'September 2023 - Currently working...',
+    title: 'Full stack developer',
+    company: 'MyGuide Holiday',
+    description:
+      'I built a Next.js platform for booking tourist activities, with multi-language support (4 languages), secure payments, and role-based dashboards for admins and partners. I optimized performance and created environments for safe feature testing, ensuring a seamless user experience.',
+    link: 'https://www.myguide.holiday',
+  },
+  {
+    date: 'February 2023 - February 2024',
+    title: 'Full stack developer',
+    company: 'Chenkster',
+    description:
+      'I developed an MVP using React, Tailwind CSS, and Supabase, integrating AI features and collaborating with designers to ensure a user-friendly interface. I deployed the app to production, created secure testing environments, and provided ongoing support.',
+    link: 'https://www.chenkster.xyz/',
+  },
+  {
+    date: 'September 2022 - January 2023',
+    title: 'Full stack developer',
+    company: 'Marina Tortarolo Real Estate Company',
+    description:
+      'I developed a frontend and admin dashboard for property management, enabling admins to efficiently create, edit, and delete properties. I also migrated the codebase from React to Next.js, significantly improving performance and optimization.',
+    link: 'https://marinatortaroloinmobiliaria.com/',
+  },
+];
+---
+
+<ol class="relative mt-16">
+  {
+    EXPERIENCE.map((experience) => (
+      <li class="">
+        <ExperienceItem {...experience} />
+      </li>
+    ))
+  }
+</ol>

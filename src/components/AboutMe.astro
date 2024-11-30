@@ -1,0 +1,47 @@
+---
+const personalImageAlt = 'Miguel Ángel';
+---
+
+<article
+  class="flex flex-col items-center justify-center gap-8 text-gray-700 dark:text-gray-300 md:flex-row"
+>
+  <div
+    class="[&>p]:mb-4 [&>p>strong]:text-yellow-500 dark:[&>p>strong]:text-yellow-100 [&>p>strong]:font-normal [&>p>strong]:font-mono text-pretty order-2 md:order-1"
+  >
+    <p>
+      Hi! I'm <strong>Lautaro</strong>, a self-taught web developer specializing
+      in <strong>Full Stack development</strong>. I started my career working
+      with technologies like <strong>React.js</strong> and <strong
+        >Next.js</strong
+      >, and since then, I’ve enjoyed building dynamic and scalable web
+      applications.
+    </p>
+
+    <p>
+      Among my achievements, I highlight my experience with the <strong
+        >MERN stack</strong
+      > (MongoDB, Express.js, React.js, and Node.js), complemented by <strong
+        >TypeScript</strong
+      > to ensure robust and maintainable code. I am passionate about <strong
+        >technology</strong
+      > and love finding <strong>creative solutions</strong> to complex problems.
+    </p>
+
+    <p>
+      I truly value <strong>collaboration</strong> and teamwork. I believe that the
+      best software comes from combining diverse perspectives and skills. I’m always
+      looking for challenges that allow me to <strong>learn</strong>, grow, and
+      contribute to the success of both the team and the projects I’m involved
+      in.
+    </p>
+  </div>
+
+  <img
+    width="200"
+    height="200"
+    src="/me.webp"
+    alt={personalImageAlt}
+    class="order-1 object-cover w-64 h-full p-1 md:order-2 rotate-3 lg:p-2 lg:w-64 aspect-square rounded-2xl bg-black/20 dark:bg-yellow-500/5 ring-1 ring-black/70 dark:ring-white/20"
+    style="object-position: 50% 50%"
+  />
+</article>

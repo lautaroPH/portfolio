@@ -1,0 +1,47 @@
+---
+import Express from './icons/Express.astro';
+
+const SKILLS = [
+  { name: 'HTML', icon: 'mdi:language-html5' },
+  { name: 'CSS', icon: 'mdi:language-css3' },
+  {
+    name: 'Javascript',
+    icon: 'mdi:language-javascript',
+    color: 'text-yellow-500',
+  },
+  {
+    name: 'Typescript',
+    icon: 'mdi:language-typescript',
+  },
+  { name: 'Reactjs', icon: 'mdi:react' },
+  {
+    name: 'Nextjs',
+    icon: 'mdi:alpha-n-box',
+  },
+  { name: 'Nodejs', icon: 'mdi:nodejs' },
+  { name: 'ExpressJs' },
+  { name: 'MongoDB', icon: 'mdi:database' },
+  { name: 'SQL', icon: 'mdi:database-search' },
+  { name: 'Postgresql', icon: 'mdi:database-edit' },
+  { name: 'Git', icon: 'mdi:git' },
+];
+---
+
+<!-- Agregar el script de Iconify CDN -->
+<script src="https://code.iconify.design/3/3.1.0/iconify.min.js"></script>
+
+<div class="flex flex-wrap items-center justify-center gap-4 p-4">
+  {
+    SKILLS.map((skill) => (
+      <div class="inline-flex items-center justify-center gap-2 px-4 py-1 text-gray-800 transition bg-gray-100 border border-gray-300 rounded-full dark:bg-gray-800 dark:border-gray-600 dark:text-white focus-visible:ring-yellow-500/80 text-md group max-w-fit focus:outline-none focus-visible:outline-none focus-visible:ring focus-visible:ring-white focus-visible:ring-offset-2 active:bg-black">
+        {skill.name === 'ExpressJs' && <Express class="w-5 h-5" />}
+        <span
+          class="text-xl iconify"
+          style="color: currentColor;"
+          data-icon={skill.icon}
+        />
+        {skill.name}
+      </div>
+    ))
+  }
+</div>
