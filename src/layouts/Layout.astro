@@ -28,6 +28,21 @@ const site = "https://lautaro-portfolio.vercel.app"
     <title>{title}</title>
     <link rel="alternate" hreflang="en" href={`${site}/`} />
     <link rel="alternate" hreflang="es" href={`${site}/es/`} />
+    <link rel="canonical" href={`${site}${lang === "es" ? "/es/" : "/"}`} />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Lautaro Perez Herrera" />
+    <meta property="og:url" content={`${site}${lang === "es" ? "/es/" : "/"}`} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={`${site}/og.png`} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="627" />
+    <meta property="og:image:alt" content="Lautaro Perez Herrera, Full Stack Engineer" />
+    <meta property="og:locale" content={lang === "es" ? "es_AR" : "en_US"} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={`${site}/og.png`} />
     <ViewTransitions />
   </head>
 
