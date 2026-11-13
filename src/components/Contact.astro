@@ -1,0 +1,63 @@
+---
+import LinkedInIcon from '@/components/icons/LinkedIn.astro';
+import MailIcon from '@/components/icons/Mail.astro';
+import SocialPill from '@/components/SocialPill.astro';
+import { EMAIL, LINKEDIN, t, type Lang } from '@/i18n/ui';
+
+interface Props {
+  lang: Lang;
+}
+const tr = t(Astro.props.lang).contact;
+---
+
+<div class="flex flex-col gap-6 text-gray-700 dark:text-gray-300">
+  <p class="text-lg text-pretty">{tr.text}</p>
+  <div class="flex flex-wrap items-center gap-4">
+    <span
+      class="px-4 py-2 font-mono text-lg font-semibold text-gray-800 border rounded-xl bg-white/60 border-black/10 dark:bg-gray-800/40 dark:border-white/10 dark:text-white select-all"
+      >{EMAIL}</span
+    >
+    <button
+      type="button"
+      id="copy-email"
+      data-email={EMAIL}
+      data-copied={tr.copied}
+      class="inline-flex items-center gap-2 px-4 py-1 transition bg-yellow-400 border border-yellow-500 rounded-full text-gray-900 hover:bg-yellow-300 focus-visible:outline-none focus-visible:ring focus-visible:ring-yellow-500/80"
+    >
+      {tr.copy}
+    </button>
+  </div>
+  <nav class="flex flex-wrap gap-4">
+    <SocialPill href={`mailto:${EMAIL}`}>
+      <MailIcon class="size-4" />
+      {tr.write}
+    </SocialPill>
+    <SocialPill href={LINKEDIN}>
+      <LinkedInIcon class="size-4" />
+      LinkedIn
+    </SocialPill>
+  </nav>
+</div>
+
+<script>
+  document.addEventListener('astro:page-load', () => {
+    const btn = document.getElementById('copy-email');
+    if (!btn) return;
+    const label = btn.textContent;
+    btn.onclick = async () => {
+      const email = btn.dataset.email ?? '';
+      try {
+        await navigator.clipboard.writeText(email);
+      } catch {
+        const tmp = document.createElement('textarea');
+        tmp.value = email;
+        document.body.appendChild(tmp);
+        tmp.select();
+        document.execCommand('copy');
+        tmp.remove();
+      }
+      btn.textContent = btn.dataset.copied ?? '';
+      setTimeout(() => (btn.textContent = label), 2000);
+    };
+  });
+</script>

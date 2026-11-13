@@ -1,0 +1,43 @@
+---
+import { t, type Lang } from '@/i18n/ui';
+
+interface Props {
+  lang: Lang;
+}
+const tr = t(Astro.props.lang);
+---
+
+<ul class="grid gap-6 mt-10 md:grid-cols-2">
+  {
+    tr.projects.map((project) => (
+      <li class="flex flex-col gap-3 p-6 border rounded-2xl bg-white/60 border-black/10 dark:bg-gray-800/40 dark:border-white/10">
+        <h3 class="text-xl font-bold text-gray-800 dark:text-white">
+          {project.title}
+        </h3>
+        <p class="text-sm font-medium text-yellow-600 dark:text-yellow-200">
+          {project.client}
+        </p>
+        <p class="text-gray-600 dark:text-gray-300 text-pretty">
+          {project.description}
+        </p>
+        <ul class="flex flex-wrap gap-2 pt-1 mt-auto">
+          {project.tags.map((tag) => (
+            <li class="px-2 py-0.5 text-xs rounded-full bg-gray-100 text-gray-700 border border-gray-300 dark:bg-gray-900 dark:text-gray-200 dark:border-gray-600">
+              {tag}
+            </li>
+          ))}
+        </ul>
+        {'link' in project && project.link && (
+          <a
+            href={project.link}
+            target="_blank"
+            rel="noopener"
+            class="text-sm font-semibold text-yellow-600 dark:text-yellow-200 hover:underline"
+          >
+            {tr.seeMore} →
+          </a>
+        )}
+      </li>
+    ))
+  }
+</ul>

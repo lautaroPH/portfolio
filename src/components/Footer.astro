@@ -1,4 +1,10 @@
 ---
+import { t, type Lang } from '@/i18n/ui';
+
+interface Props {
+  lang: Lang;
+}
+const tr = t(Astro.props.lang);
 const currentYear = new Date().getFullYear();
 ---
 
@@ -10,8 +16,8 @@ const currentYear = new Date().getFullYear();
   >
     <span class="text-sm sm:text-center text-zinc-800/90 dark:text-zinc-200/90">
       © {currentYear}
-      <a href="https://midu.dev/" class="hover:underline">Lautaro</a>. Site
-      developed with inspiration and respect. Credits to <a
+      <a href={tr.home} class="hover:underline">Lautaro Perez Herrera</a>.
+      {tr.footer} <a
         href="https://github.com/midudev"
         target="_blank"
         rel="noopener"
@@ -22,13 +28,12 @@ const currentYear = new Date().getFullYear();
       class="flex flex-wrap items-center mt-3 text-sm font-medium dark:text-white/90 sm:mt-0"
     >
       <li>
-        <a href="/#about-me" class="hover:underline me-4 md:me-6">About me</a>
+        <a href={`${tr.home}#about-me`} class="hover:underline me-4 md:me-6">{tr.nav.about}</a>
       </li>
       <li>
         <a
-          id="contacto"
-          href="mailto:lautaroph@gmail.com"
-          class="hover:underline">Contact</a
+          href={`${tr.home}#contact`}
+          class="hover:underline">{tr.nav.contact}</a
         >
       </li>
     </ul>

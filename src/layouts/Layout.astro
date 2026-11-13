@@ -5,16 +5,20 @@ import Header from "../components/Header.astro"
 import Footer from "../components/Footer.astro"
 import { ViewTransitions } from "astro:transitions"
 
+import type { Lang } from "@/i18n/ui"
+
 interface Props {
   title: string
   description: string
+  lang: Lang
 }
 
-const { description, title } = Astro.props
+const { description, title, lang } = Astro.props
+const site = "https://lautaro-portfolio.vercel.app"
 ---
 
 <!doctype html>
-<html lang="es">
+<html lang={lang}>
   <head>
     <meta charset="UTF-8" />
     <meta name="description" content={description} />
@@ -22,6 +26,8 @@ const { description, title } = Astro.props
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
+    <link rel="alternate" hreflang="en" href={`${site}/`} />
+    <link rel="alternate" hreflang="es" href={`${site}/es/`} />
     <ViewTransitions />
   </head>
 
@@ -32,9 +38,9 @@ const { description, title } = Astro.props
       dark:bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(120,119,198,0.3),rgba(255,255,255,0))]"
     >
     </div>
-    <Header />
+    <Header lang={lang} />
     <slot />
-    <Footer />
+    <Footer lang={lang} />
     <style is:global>
       :root {
         color-scheme: light dark;

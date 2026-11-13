@@ -1,0 +1,72 @@
+---
+import Layout from '@/layouts/Layout.astro';
+
+import AboutMe from '@/components/AboutMe.astro';
+import Briefcase from '@/components/icons/Briefcase.astro';
+import CodeIcon from '@/components/icons/Code.astro';
+import Contact from '@/components/Contact.astro';
+import Experience from '@/components/Experience.astro';
+import MailIcon from '@/components/icons/Mail.astro';
+import ProfileCheck from '@/components/icons/ProfileCheck.astro';
+import Projects from '@/components/Projects.astro';
+import SectionContainer from '@/components/SectionContainer.astro';
+import Hero from '@/components/Hero.astro';
+import TitleSection from '@/components/TitleSection.astro';
+import Skills from '@/components/Skills.astro';
+import { t, type Lang } from '@/i18n/ui';
+
+interface Props {
+  lang: Lang;
+}
+const { lang } = Astro.props;
+const tr = t(lang);
+---
+
+<Layout lang={lang} title={tr.meta.title} description={tr.meta.description}>
+  <main class="px-4">
+    <SectionContainer class="py-16 md:py-36">
+      <Hero lang={lang} />
+    </SectionContainer>
+  </main>
+  <div class="px-4 space-y-24">
+    <SectionContainer id="experience">
+      <TitleSection>
+        <Briefcase class="size-8" />
+        {tr.titles.experience}
+      </TitleSection>
+      <Experience lang={lang} />
+    </SectionContainer>
+
+    <SectionContainer id="projects">
+      <TitleSection>
+        <CodeIcon class="size-7" />
+        {tr.titles.projects}
+      </TitleSection>
+      <Projects lang={lang} />
+    </SectionContainer>
+
+    <SectionContainer id="skills">
+      <TitleSection>
+        <CodeIcon class="size-7" />
+        {tr.titles.skills}
+      </TitleSection>
+      <Skills />
+    </SectionContainer>
+
+    <SectionContainer id="about-me">
+      <TitleSection>
+        <ProfileCheck class="size-8" />
+        {tr.titles.about}
+      </TitleSection>
+      <AboutMe lang={lang} />
+    </SectionContainer>
+
+    <SectionContainer id="contact">
+      <TitleSection>
+        <MailIcon class="size-8" />
+        {tr.titles.contact}
+      </TitleSection>
+      <Contact lang={lang} />
+    </SectionContainer>
+  </div>
+</Layout>

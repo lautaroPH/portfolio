@@ -2,44 +2,45 @@
 import Express from './icons/Express.astro';
 
 const SKILLS = [
-  { name: 'HTML', icon: 'mdi:language-html5' },
-  { name: 'CSS', icon: 'mdi:language-css3' },
-  {
-    name: 'Javascript',
-    icon: 'mdi:language-javascript',
-    color: 'text-yellow-500',
-  },
-  {
-    name: 'Typescript',
-    icon: 'mdi:language-typescript',
-  },
-  { name: 'Reactjs', icon: 'mdi:react' },
-  {
-    name: 'Nextjs',
-    icon: 'mdi:alpha-n-box',
-  },
-  { name: 'Nodejs', icon: 'mdi:nodejs' },
-  { name: 'ExpressJs' },
+  { name: 'TypeScript', icon: 'mdi:language-typescript' },
+  { name: 'JavaScript', icon: 'mdi:language-javascript' },
+  { name: 'React', icon: 'mdi:react' },
+  { name: 'Next.js', icon: 'mdi:alpha-n-box' },
+  { name: 'Remix', icon: 'mdi:alpha-r-box' },
+  { name: 'Node.js', icon: 'mdi:nodejs' },
+  { name: 'Express.js' },
+  { name: 'Python', icon: 'mdi:language-python' },
+  { name: 'FastAPI', icon: 'mdi:lightning-bolt' },
+  { name: 'PostgreSQL', icon: 'mdi:database-edit' },
   { name: 'MongoDB', icon: 'mdi:database' },
-  { name: 'SQL', icon: 'mdi:database-search' },
-  { name: 'Postgresql', icon: 'mdi:database-edit' },
+  { name: 'Supabase', icon: 'mdi:database-arrow-up' },
+  { name: 'Claude API', icon: 'mdi:robot-outline' },
+  { name: 'OpenAI API', icon: 'mdi:robot-outline' },
+  { name: 'MCP servers', icon: 'mdi:connection' },
+  { name: 'Stripe', icon: 'mdi:credit-card-outline' },
+  { name: 'Meta APIs', icon: 'mdi:message-outline' },
+  { name: 'Tailwind CSS', icon: 'mdi:tailwind' },
+  { name: 'Docker', icon: 'mdi:docker' },
+  { name: 'GitHub Actions', icon: 'mdi:github' },
+  { name: 'AWS S3', icon: 'mdi:aws' },
   { name: 'Git', icon: 'mdi:git' },
 ];
 ---
 
-<!-- Agregar el script de Iconify CDN -->
 <script src="https://code.iconify.design/3/3.1.0/iconify.min.js"></script>
 
 <div class="flex flex-wrap items-center justify-center gap-4 p-4">
   {
     SKILLS.map((skill) => (
-      <div class="inline-flex items-center justify-center gap-2 px-4 py-1 text-gray-800 transition bg-gray-100 border border-gray-300 rounded-full dark:bg-gray-800 dark:border-gray-600 dark:text-white focus-visible:ring-yellow-500/80 text-md group max-w-fit focus:outline-none focus-visible:outline-none focus-visible:ring focus-visible:ring-white focus-visible:ring-offset-2 active:bg-black">
-        {skill.name === 'ExpressJs' && <Express class="w-5 h-5" />}
-        <span
-          class="text-xl iconify"
-          style="color: currentColor;"
-          data-icon={skill.icon}
-        />
+      <div class="inline-flex items-center justify-center gap-2 px-4 py-1 text-gray-800 transition bg-gray-100 border border-gray-300 rounded-full dark:bg-gray-800 dark:border-gray-600 dark:text-white text-md max-w-fit">
+        {skill.name === 'Express.js' && <Express class="w-5 h-5" />}
+        {skill.icon && (
+          <span
+            class="text-xl iconify"
+            style="color: currentColor;"
+            data-icon={skill.icon}
+          />
+        )}
         {skill.name}
       </div>
     ))
